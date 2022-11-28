@@ -1,23 +1,51 @@
 let randomIndexNumber
-let notInRecent = true
+let numRecent = 0
 
 document.getElementById("RandomRecipe").onclick = function(){
 
-    randomIndexNumber =  Math.floor(Math.random()*recipeList.length);
     
-    document.getElementById("Result").innerHTML = "Heute gibt es "      // Display result
-    + recipeList[randomIndexNumber] + "! :)";                           
-
-    recentList.forEach(checkIfInRecentList);      	                    // Check if in recentList already
-
+    
+    displayResult();
+    
+    if (document.getElementById("Result").innerHTML == ""){
+        console.log("reset")
+        displayResult();
+    }
+    
     addToRecent();                                                      // Add Result to recent list
     
     console.log(recentList);
     
     updateRecentList();                                                 // Remove last dish from recent list
-
-    notInRecent = true;                                                 // Reset 
+    
 }
+
+// creating a result
+
+function displayResult(){  
+    
+    randomIndexNumber =  Math.floor(Math.random()*recipeList.length);
+    numRecent = 0;                                                      // Reset before checking 
+    recentList.forEach(checkIfInRecentList);      	                    // Check if in recentList already
+    console.log(numRecent);
+    
+    if (numRecent == 0){
+        console.log("läuft");
+        document.getElementById("Result").innerHTML = "Heute gibt es " + recipeList[randomIndexNumber] + "! :)"
+    }
+    else if(numRecent != 0 && recipeList.length < 7) {
+        console.log("läfut auch");
+        document.getElementById("Result").innerHTML = "Sie müssen erst mehr Gerichte hinzufügen."
+        return;
+    }
+    else {
+        console.log("ja perfekt");
+        displayResult();
+        return;
+    }
+
+}
+
 
 
 // Check if in recentList already
@@ -25,9 +53,9 @@ document.getElementById("RandomRecipe").onclick = function(){
 function checkIfInRecentList(value){                                   
 
     if (recipeList[randomIndexNumber] == value){
-        notInRecent = false;
+    numRecent += 1;
     }   
-
+  
 }
 
 
@@ -35,7 +63,7 @@ function checkIfInRecentList(value){
 
 function addToRecent(){
     
-    if (notInRecent == true){
+    if (numRecent == 0){
         recentList.push(recipeList[randomIndexNumber]);                     
     }
 
@@ -46,7 +74,7 @@ function addToRecent(){
 
 function updateRecentList(){
 
-    if (recentList.length == 7){
+    if (recentList.length == 8){
         recentList.shift();
     }
 }

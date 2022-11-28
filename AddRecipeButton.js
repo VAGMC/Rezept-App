@@ -33,7 +33,7 @@ document.getElementById("AddRecipe").onclick = function(){
 }
 
 function addToList(){
-    if(isNewRecipe == true && newRecipe != 0 && noRecentRecipe == true){ // Add the Element if conditions are met
+    if(isNewRecipe == true && newRecipe != "" && noRecentRecipe == true){ // Add the Element if conditions are met
         recipeList.push(newRecipe);
 //      console.log(isNewRecipe);
     } 
