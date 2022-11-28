@@ -1,21 +1,17 @@
+// variables
+
 let randomIndexNumber
 let numRecent = 0
 
-document.getElementById("RandomRecipe").onclick = function(){
 
+// Main button function
+
+document.getElementById("RandomRecipe").onclick = function(){
     
-    
-    displayResult();
-    
-    if (document.getElementById("Result").innerHTML == ""){
-        console.log("reset")
-        displayResult();
-    }
+    displayResult();                                                    // Display possible result
     
     addToRecent();                                                      // Add Result to recent list
-    
-    console.log(recentList);
-    
+        
     updateRecentList();                                                 // Remove last dish from recent list
     
 }
@@ -24,22 +20,23 @@ document.getElementById("RandomRecipe").onclick = function(){
 
 function displayResult(){  
     
-    randomIndexNumber =  Math.floor(Math.random()*recipeList.length);
+    randomIndexNumber =  Math.floor(Math.random()*recipeList.length);   // Generate random recipeList index number
     numRecent = 0;                                                      // Reset before checking 
-    recentList.forEach(checkIfInRecentList);      	                    // Check if in recentList already
-    console.log(numRecent);
-    
+    recentList.forEach(checkIfInRecentList);      	                    // Check if in recentList already    
+
     if (numRecent == 0){
-        console.log("läuft");
         document.getElementById("Result").innerHTML = "Heute gibt es " + recipeList[randomIndexNumber] + "! :)"
     }
-    else if(numRecent != 0 && recipeList.length < 7) {
-        console.log("läfut auch");
+  
+    else if (numRecent != 0 && recentList.length < recipeList.length){
+        displayResult();
+        return;
+    }  
+    else if(numRecent != 0 && recipeList.length < 7 && recipeList.length >= recentList.length){
         document.getElementById("Result").innerHTML = "Sie müssen erst mehr Gerichte hinzufügen."
         return;
     }
     else {
-        console.log("ja perfekt");
         displayResult();
         return;
     }
@@ -77,7 +74,5 @@ function updateRecentList(){
     if (recentList.length == 8){
         recentList.shift();
     }
+
 }
-
-
-// Bestätigen Button hinzufügen

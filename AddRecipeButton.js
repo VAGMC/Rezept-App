@@ -32,12 +32,14 @@ document.getElementById("AddRecipe").onclick = function(){
    
 }
 
+
 function addToList(){
     if(isNewRecipe == true && newRecipe != "" && noRecentRecipe == true){ // Add the Element if conditions are met
         recipeList.push(newRecipe);
-//      console.log(isNewRecipe);
     } 
+
 }
+
 
 function displayMessage(){
 
@@ -51,13 +53,17 @@ function displayMessage(){
     else {
         document.getElementById("wasAdded").innerHTML = ""
     }
+
 }
+
 
 function reset(){
     document.getElementById("UserInput").value = "";
     isNewRecipe = true;                                       // make true again as default
     noRecentRecipe = true;
+    
 }
+
 
 // Function to check for doubles
 
@@ -67,6 +73,7 @@ function checkForDouble(value){
     }
 
 }
+
 
 // no Repetition in one Week 
 
