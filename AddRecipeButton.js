@@ -1,3 +1,5 @@
+'use strict';
+
 //variables
 
 let totalNumber
@@ -10,65 +12,76 @@ let noRecentRecipe = true
 const recipeList = [];
 const recentList = [];
 
-
-
 // Main Button Function
 
-document.getElementById("AddRecipe").onclick = function(){
+document.getElementById("add-recipe").onclick = function () {
 
-    newRecipe = document.getElementById("UserInput").value;
-  
-    recipeList.forEach(checkForDouble);                       // Check Element for double with function   
+    clearTexts();
+    // clear user messages
 
-    recentList.forEach(checkForRecent);                       // Check Element if used in the last week
+    newRecipe = document.getElementById("user-input").value;
 
-    addToList();                                              // Adding
-    
-    console.log(recipeList);
-    
-    displayMessage();                                         // Show message
+    recipeList.forEach(checkForDouble);
+    // Check Element for double with function   
 
-    reset();                                                  // Reset to default    
-   
+    recentList.forEach(checkForRecent);
+    // Check Element if used in the last week
+
+    addToList();
+    // Adding
+
+    displayMessage();
+    // Show message
+
+    reset();
+    // Reset to default    
+
 }
 
 
-function addToList(){
-    if(isNewRecipe == true && newRecipe != "" && noRecentRecipe == true){ // Add the Element if conditions are met
+function addToList() {
+    if (isNewRecipe == true && newRecipe != "" && noRecentRecipe == true) {
+        // Add the Element if conditions are met
+
         recipeList.push(newRecipe);
-    } 
+    }
 
 }
 
 
-function displayMessage(){
+function displayMessage() {
 
-     if (newRecipe != "" && isNewRecipe == true){
-        document.getElementById("wasAdded").innerHTML = "Sie haben " + newRecipe + 
-    " zu Ihren Gerichten hinzugefügt."
+    if (newRecipe != "" && isNewRecipe == true) {
+        document.getElementById("was-added").innerHTML = "Sie haben " + newRecipe +
+            " zu Ihren Gerichten hinzugefügt."
+        // Display "added" message
     }
     else if (newRecipe != "") {
-        document.getElementById("wasAdded").innerHTML = "Das Gericht befindet sich bereits in Ihrer Liste."
+        document.getElementById("was-added").innerHTML = "Das Gericht befindet sich bereits in Ihrer Liste."
+        // Display "repetition" message
     }
     else {
-        document.getElementById("wasAdded").innerHTML = ""
+        document.getElementById("was-added").innerHTML = "Sie müssen ein Rezept angeben."
+        // Back to default 
     }
 
 }
 
 
-function reset(){
-    document.getElementById("UserInput").value = "";
-    isNewRecipe = true;                                       // make true again as default
+function reset() {
+    document.getElementById("user-input").value = "";
+    isNewRecipe = true;
+    // make true again as default
+
     noRecentRecipe = true;
-    
+
 }
 
 
 // Function to check for doubles
 
-function checkForDouble(value){           
-    if (newRecipe == value ){
+function checkForDouble(value) {
+    if (newRecipe == value) {
         isNewRecipe = false;
     }
 
@@ -77,9 +90,17 @@ function checkForDouble(value){
 
 // no Repetition in one Week 
 
-function checkForRecent(value){
-    if (newRecipe == value){
+function checkForRecent(value) {
+    if (newRecipe == value) {
         noRecentRecipe = false;
     }
 
+}
+
+// clear Texts
+
+function clearTexts() {
+    document.getElementById("result").innerHTML = "";
+    document.getElementById("recipe-list").innerHTML = "";
+    document.getElementById("was-added").innerHTML = "";
 }

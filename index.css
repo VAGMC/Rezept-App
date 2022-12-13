@@ -1,0 +1,88 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    background-color: #86BBD8;
+    font-family: 'Franklin Gothic Medium';
+    margin: 40px;
+    width: 300px;
+    padding: 20px;
+    border: 3px double;
+    border-color: #2F4858;
+}
+
+form {
+    color: #2F4858;
+    /* margin-top: 20px; */
+    /* margin-bottom: 20px; */
+    /* border: 2px solid; */
+    /* border-top-style: dashed;
+    border-color: #F26419; */
+}
+
+.header {
+    font-size: 45px;
+    color: #2F4858;
+    margin-bottom: 30px;
+}
+
+.second-header {
+    width: 90%;
+    left: 5%;
+    position: relative;
+    font-size: 20px;
+    color: #2F4858;
+    margin-bottom: 25px;
+}
+
+
+.output {
+    height: 20px;
+    font-size: 15px;
+    color: #33658A;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    /* color: #2F4858; */
+}
+
+.button1 {
+    left: 25%;
+    position: relative;
+    width: 50%;
+    background-color: #F6AE2D;
+
+}
+
+.button2 {
+
+    background-color: #F26419;
+    width: 70%;
+    left: 15%;
+    position: relative;
+}
+
+#user-input {
+    left: 20%;
+    position: relative;
+    width: 60%;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+#user-input,
+.button {
+    padding: 5px;
+    color: #2F4858;
+    border-color: #A2B8AE;
+}
+
+
+.lists {
+    margin-top: 20px;
+    /* width: 400px;
+    height: 600px; */
+}

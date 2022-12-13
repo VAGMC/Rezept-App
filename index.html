@@ -1,24 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ger">
+
 <head>
+    <link rel="shortcut icon" href="#">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Rezeptsuche </title>
+
+    <link rel="stylesheet" href="index.css">
+
 </head>
-<body>
-    <label id="GeneralHeader">Rezepte App</label><br><br><br>
-    <label id="RandomRecipeHeader">Was solls heute geben?</label><br><br>
-    <button id="RandomRecipe">Neues Rezept</button><br><br>
-    <label for="text" id="Result"></label><br><br><br>
-    
-    <label id="AddRecipeHeader">Neues Rezept gefunden?</label><br><br>
-    <input type="text" id="UserInput"><br><br>
-    <button type="button" id="AddRecipe">Rezept hinzufügen</button><br><br>
-    <label for="text" id="wasAdded"></label>
-    
+
+<body id="MainBody">
+    <p class="header">
+        <label id="general-header">Rezepte App</label>
+    </p>
+    <p class="second-header">
+        <label id="random-recipe-header">Was soll es heute geben?</label>
+    </p>
+    <button class="button button1" id="random-recipe">Neues Rezept</button>
+    <form class="output">
+        <label for="text" id="result"></label>
+    </form>
+    <p class="second-header"><label id="add-recipe-header">Neues Rezept gefunden?</label>
+    </p>
+    <form class="input">
+        <input type="text" id="user-input" placeholder="Rezept hier eintragen...">
+    </form>
+    <button class="button button1" type="button" id="add-recipe">Hinzufügen</button>
+    <form class="output">
+        <label for="text" id="was-added"></label>
+    </form>
+    <button class="button button2" type="button" id="all-recipes">Alle Rezepte Anzeigen</button>
+    <button class="button button2" type="button" id="recent-recipes">Letzte Rezepte Anzeigen</button>
+    <form class="lists">
+        <label for="text" id="recipe-list"></label>
+    </form>
 
     <script src="AddRecipeButton.js"></script>
     <script src="NewRecipeButton.js"></script>
+    <script src="AllRecipeButton.js"></script>
+    <script src="RecentRecipesButton.js"></script>
+
 </body>
+
 </html>
